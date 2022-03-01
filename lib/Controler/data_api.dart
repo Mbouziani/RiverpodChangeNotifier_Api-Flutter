@@ -12,6 +12,7 @@ final DataFuture = ChangeNotifierProvider((ref) => FetchDataFromApi());
 class FetchDataFromApi extends ChangeNotifier {
   FetchDataFromApi() {
     GetData();
+    notifyListeners();
   }
 
   final String url = 'https://jsonplaceholder.typicode.com/users';
@@ -27,15 +28,4 @@ class FetchDataFromApi extends ChangeNotifier {
 
     return user;
   }
-
-  // Future<void> printData() async {
-  //   http.Response response = await http.get(Uri.parse(url));
-  //   var data = jsonDecode(response.body);
-
-  //   List<User> user = [];
-  //   for (int i = 0; i < data.length; i++) {
-  //     user.add(User.fromJson(data[i]));
-  //   }
-  //   print(user[1].address!.city);
-  // }
 }
